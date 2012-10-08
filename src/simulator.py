@@ -1,8 +1,8 @@
 from Tkinter import mainloop, Tk, Canvas
 from math import sqrt, atan2
 
-from ParticleFilter import ParticleFilter
-from Robot import Robot
+from particlefilter import ParticleFilter
+from robot import Robot
 import time
 import random
 

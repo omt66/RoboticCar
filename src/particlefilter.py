@@ -2,8 +2,8 @@ from math import pi
 import random
 from copy import copy
 
-from Robot import Robot
-import Sampling
+from robot import Robot
+import sampling
 
 
 class ParticleFilter:
@@ -36,4 +36,4 @@ class ParticleFilter:
              for particle in self.particles]
 
         self.particles = [copy(sample)
-                          for sample in Sampling.roulette(self.particles, w)]
+                          for sample in sampling.roulette(self.particles, w)]

@@ -14,7 +14,9 @@ def ground(left, top, right, bottom, minsize=20, maxsize=200):
 class Game:
 
     def __init__(self, complexity=8, width=1000, height=800, margin=100):
-        world = Landscape(terrain=[ground(margin, margin, width - margin, height - margin) for i in range(complexity)])
+        world = Landscape(terrain=[
+            ground(margin, margin, width - margin, height - margin)
+            for i in range(complexity)])
         self.board = Simulator(world, width=width, height=height)
 
     def play(self):

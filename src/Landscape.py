@@ -10,10 +10,12 @@ class Landscape:
     def display(self, canvas):
 
         for item in self.terrain:
-            canvas.create_rectangle(item[0], item[1], item[2], item[3], fill="forest green", tags="ground")
+            canvas.create_rectangle(item[0], item[1], item[2], item[3],
+                                    fill="forest green", tags="ground")
 
         for item in self.obstacles:
-            canvas.create_rectangle(item[0], item[1], item[2], item[3], fill="red", tags="obstacle")
+            canvas.create_rectangle(item[0], item[1], item[2], item[3],
+                                    fill="red", tags="obstacle")
 
     def surface(self, x, y):
 
@@ -41,7 +43,8 @@ class Landscape:
             # better: distance to edge closest to x,y
             center_x = (rectangle[2] + rectangle[0]) / 2
             center_y = (rectangle[3] + rectangle[1]) / 2
-            distance_to_center = sqrt((x - center_x) ** 2 + (y - center_y) ** 2)
+            distance_to_center = sqrt((x - center_x) ** 2 +
+                                      (y - center_y) ** 2)
             center_to_edge = min([abs(x - center_x), abs(y - center_y)])
             return (distance_to_center - center_to_edge)
 
@@ -50,8 +53,13 @@ class Landscape:
         elif measure:
             # inverse square minimum distance to first matching edge
             for item in self.terrain:
-                if (item[0] < x and item[1] < y and x < item[2] and y < item[3]):
-                    distance = min([abs(x - item[0]), abs(y - item[1]), abs(x - item[2]), abs(y - item[3])])
+                if (item[0] < x and item[1] < y and x < item[2] and
+                    y < item[3]):
+                    distance = min([
+                        abs(x - item[0]),
+                        abs(y - item[1]),
+                        abs(x - item[2]),
+                        abs(y - item[3])])
                     return 1 / (1 + distance / 100) ** 2
         else:
             # sum of inverse square distance to ground

@@ -29,9 +29,11 @@ class ParticleFilter:
 
     def update(self, rotation, distance, measure):
         for particle in self.particles:
-            particle.move(rotation * random.gauss(1.0, self.turn_noise), distance * random.gauss(1.0, self.forward_noise))
+            particle.move(rotation * random.gauss(1.0, self.turn_noise),
+                          distance * random.gauss(1.0, self.forward_noise))
 
         w = [abs(random.gauss(0.0, self.sense_noise) + measure(particle))
              for particle in self.particles]
 
-        self.particles = [copy(sample) for sample in Sampling.roulette(self.particles, w)]
+        self.particles = [copy(sample)
+                          for sample in Sampling.roulette(self.particles, w)]

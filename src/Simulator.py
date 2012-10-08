@@ -64,7 +64,8 @@ class Simulator:
             canvas.create_line(original_x, original_y, robot.x, robot.y)
         Z = self.world.surface(robot.x, robot.y)
         self.localizer.erase(canvas)
-        localizer.update(rotation, distance, lambda particle: self.measurement_probabilty(particle, Z))
+        localizer.update(rotation, distance, lambda particle:
+                         self.measurement_probabilty(particle, Z))
         localizer.display(canvas)
         robot.display(canvas)
         self.master.update()

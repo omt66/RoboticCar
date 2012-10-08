@@ -26,7 +26,9 @@ class Robot:
         x = self.x + random.gauss(0.0, self.display_noise)
         y = self.y + random.gauss(0.0, self.display_noise)
         if not color is None and color is not "None":
-            self.widget = canvas.create_rectangle(x - size, y - size, x + size, y + size, fill=color, outline="gray20", activefill="red")
+            self.widget = canvas.create_rectangle(
+                x - size, y - size, x + size, y + size,
+                fill=color, outline="gray20", activefill="red")
 
     def move(self, rotation, distance):
         self.orientation += rotation
@@ -35,4 +37,5 @@ class Robot:
         self.y += (sin(self.orientation) * distance)
 
     def __repr__(self):
-        return '[x=%.6s y=%.6s orient=%.6s]' % (self.x, self.y, self.orientation)
+        return ('[x=%.6s y=%.6s orient=%.6s]' %
+                (self.x, self.y, self.orientation))

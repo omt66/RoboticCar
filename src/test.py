@@ -1,18 +1,20 @@
-
-
 from Landscape import Landscape
 from Simulator import Simulator
 from math import pi, sqrt
 
-world = Landscape (terrain = [[150,200,350,400], [400,400,600,600], [600,200,800,400]])
+
+world = Landscape(terrain=[
+    [150, 200, 350, 400],
+    [400, 400, 600, 600],
+    [600, 200, 800, 400]])
 demo = Simulator(world)
 
-right = pi/2
-left = -pi/2
+right = pi / 2
+left = -pi / 2
 straight = 0
 
-demo.explore(401, 401, moves=
-            [[right, 5],
+demo.explore(401, 401, moves=[
+             [right, 5],
              [left, 100],
              [right, 100],
              [right, 250],
@@ -29,7 +31,7 @@ demo.explore(401, 401, moves=
              [right, 150],
              [straight, 150],
              [straight, 100],
-             [pi/4, 30],
+             [pi / 4, 30],
              [right, 100],
              [right, 50],
              [right, 250],
@@ -54,19 +56,10 @@ demo.explore(401, 401, moves=
              [left, 20],
              [right, 20],
              [left, 25],
-             [left, sqrt(200**2+200**2)],
+             [left, sqrt(200 ** 2 + 200 ** 2)],
              [right, 20],
              [right, 20],
              [right, 20]])
 
 
 demo.interactive()
-
-
-
-
-
-        
-
-
-  
